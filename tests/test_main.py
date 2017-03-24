@@ -2,6 +2,7 @@
 import unittest
 
 from language_detector import detect_language
+from language_detector import most_common_word
 from language_detector.languages import LANGUAGES
 
 
@@ -66,3 +67,8 @@ class TestLanguageDetector(unittest.TestCase):
         """
         result = detect_language(text, LANGUAGES)
         self.assertEqual(result, 'English')
+    
+    def test_most_common_word(self):
+        text = "one one one two two three"
+        result = most_common_word(text)
+        self.assertEqual(result,"one")
